@@ -103,6 +103,30 @@ while ($a <= 10) {
 }
 echo "</div>";
 
+echo "<hr>";
+
+$goods = [
+  'Banana',
+  'Orange',
+  'Mandarin',
+  'An Apple',
+  'Kiwi',
+  'Beet',
+  'Carrot',
+  'Potatoes',
+  'Cabbage',
+];
+
+$array_index = 0;
+
+while ($array_index < count($goods)) {
+
+  echo $goods[$array_index];
+  $array_index++;
+  echo "<br>";
+}
+
+
 ?>
 </body>
 </html>
