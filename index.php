@@ -178,28 +178,34 @@ echo "</div>";
 
 echo "<hr>";
 
-
 $fop = [
-  'Popov' => 'Ivan',
+  'Popov'=> ['Ivan' => ['One', 'Two', ]],
   'Orlov',
   'Petrov',
   'Ivanoff',
   'Nemiroff',
   'Purtov',
-  'Vonpgradov',
+  'Vonogradov',
 ];
 
-function fop_count($fop_array) {
+function fop_count($array) {
   $i = 0;
-  foreach ($fop_array as $key => $value) {
+  foreach ($array as $key => $value) {
     if (isset($key)) {
       $i++;
     }
   }
   return $i;
 }
+echo '<pre>';
+print_r($fop);
+echo '</pre>';
+echo '<br>';
 
 echo "Кількість елементів масиву дорвінює: " . fop_count($fop);
+
+
+
 
 ?>
 </body>
