@@ -179,7 +179,7 @@ echo "</div>";
 echo "<hr>";
 
 $fop = [
-  'Popov'=> ['Ivan' => ['One', 'Two', ]],
+  'Popov' => ['Ivan' => ['One', 'Two',]],
   'Orlov',
   'Petrov',
   'Ivanoff',
@@ -197,6 +197,7 @@ function fop_count($array) {
   }
   return $i;
 }
+
 echo '<pre>';
 print_r($fop);
 echo '</pre>';
@@ -205,8 +206,58 @@ echo '<br>';
 echo "Кількість елементів масиву дорвінює: " . fop_count($fop);
 
 
+echo "<hr>";
 
+function UpperToLower($str) {
+  for ($i = 0; $i < strlen($str); $i++):
+    $char = ord($str{$i});
+    if ($char >= 65 && $char <= 90):
+      $str{$i} = chr($char + 32);
+    endif;
+  endfor;
+  return $str;
+}
+
+
+$str = "ASfdf3234^*&(DA";
+echo $str . "<br>";
+UpperToLower($str);
+echo $str;
+echo "<br>";
+var_dump("aC" == "aC");
+
+function SortValue(&$arr) {
+  //$pr =true;
+  do {
+    $pr = false;
+
+    for ($i = 0; $i < sizeof($arr) - 1; $i++) {
+      if (UpperToLower($arr[$i]) > UpperToLower($arr[$i + 1])) {
+        $f           = $arr[$i];
+        $arr[$i]     = $arr[$i + 1];
+        $arr[$i + 1] = $f;
+        $pr          = true;
+      }
+    }
+  } while ($pr);
+}
+
+$arr = ["a", "bf", "c", "b", "G", "A", "d", "bB"];
+
+SortValue($arr);
+
+print_r($arr);
+
+echo '<hr>';
+
+$action = ['left' => 'survive', 'right' => 'kill\'em all'];
+
+echo "Вибраний елемент: {$action['left']}";
+echo '<br>';
+echo "Вибраний елемент: $action[right]";
+echo '<hr>';
 
 ?>
+
 </body>
 </html>
