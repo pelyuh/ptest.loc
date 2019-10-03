@@ -186,14 +186,13 @@ $fop = [
   'Nemiroff',
   'Purtov',
   'Vonogradov',
+  'Sidorov',
 ];
 
 function fop_count($array) {
   $i = 0;
   foreach ($array as $key => $value) {
-    if (isset($key)) {
-      $i++;
-    }
+    $i++;
   }
   return $i;
 }
