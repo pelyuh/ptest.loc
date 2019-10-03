@@ -42,6 +42,7 @@
 <?php
 
 if (isset($_REQUEST['user-form-send'])) {
+  echo "<hr>";
   echo 'Global array $_REQUEST:';
   echo "<pre>";
   print_r($_REQUEST);
@@ -49,6 +50,7 @@ if (isset($_REQUEST['user-form-send'])) {
 }
 
 if (isset($_GET['user-form-send'])) {
+  echo "<hr>";
   echo 'Global array $_GET:';
   echo "<pre>";
   print_r($_GET);
@@ -56,6 +58,7 @@ if (isset($_GET['user-form-send'])) {
 }
 
 if (isset($_POST['user-form-send'])) {
+  echo "<hr>";
   echo 'Global array $_POST:';
   echo "<pre>";
   print_r($_POST);
@@ -63,6 +66,7 @@ if (isset($_POST['user-form-send'])) {
 }
 
 if (isset($_FILES['user-attachment-file'])) {
+  echo "<hr>";
   echo 'Global array $_FILES:';
   echo "<pre>";
   print_r($_FILES);
@@ -74,6 +78,13 @@ if (isset($_FILES['user-attachment-file'])) {
     'upload/' . $_FILES['user-attachment-file']['name']
   );
 }
+
+echo "<hr>";
+echo 'Global array $_SERVER:';
+echo "<pre>";
+print_r($_SERVER);
+echo "</pre>";
+
 ?>
 
 </body>
