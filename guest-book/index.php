@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>HTML</title>
+    <title>Guest Book</title>
 </head>
 <body>
 
@@ -25,7 +25,7 @@
 <?php
 
 if ( isset($_POST['guest-content-send']) ) {
-  $guest_content_item = $_POST['guest-name'] . "|" . $_POST['guest-content']  . "|" .  date('Y-m-d H:i:s') . "\n"  . "*-*";
+  $guest_content_item = $_POST['guest-name'] . "|" . $_POST['guest-content']  . "|" .  date('d-m-Y H:i:s') . "\n"  . "*-*";
   file_put_contents( 'guest_content.txt', $guest_content_item, FILE_APPEND);
 }
 
@@ -39,9 +39,9 @@ if ( file_exists('guest_content.txt') ) {
         $str1 = explode('|', $value);
 
         echo "<div>";
-        echo "<h3> Автор: " . $str1[0] . "</h3>";
-        echo "<p> Відгук: " . $str1[1] . "</p>";
-        echo "<p> Дата та час публікації: " . $str1[2] . "</p>";
+        echo "<h3>Author: " . $str1[0] . "</h3>";
+        echo "<p>" . $str1[1] . "</p>";
+        echo "<p><strong>Date and time submit:</strong> " . $str1[2] . "</p>";
         echo "</div>";
         echo "<br>";
       }
