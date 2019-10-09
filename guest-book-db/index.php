@@ -1,21 +1,13 @@
 <?php
 
 require_once('db_connect.php');
+require_once('function.php');
 
 if ($_POST['guest-name'] != '' AND $_POST['guest-content'] != '') {
-  $author = $_POST['guest-name'];
-  $review = $_POST['guest-content'];
-  $review = mysqli_real_escape_string($db, $review);
-
-  $db_insert
-    = "INSERT INTO content(author, review) VALUES ('$author', '$review')";
-  mysqli_query($db, $db_insert);
+  db_insert();
 }
 
-$bd_select = "SELECT author, review, date FROM content";
-
-$arr_messages = mysqli_fetch_all(mysqli_query($db, $bd_select), MYSQLI_ASSOC);
-$arr_messages = array_reverse($arr_messages);
+$arr_messages = bd_select($arr_messages);
 
 /*
 $author = 'Іра';
@@ -74,7 +66,8 @@ $result = mysqli_fetch_all(mysqli_query($db, $bd_select), MYSQLI_ASSOC);
   <?php if (!empty($arr_messages)): ?>
     <?php foreach ($arr_messages as $message): ?>
           <div class="message">
-              <h3>Author: <?= $message['author'] ?> | Data: <?= $message['date'] ?></h3>
+              <h3>Author: <?= $message['author'] ?> |
+                  Data: <?= $message['date'] ?></h3>
               <div><?= nl2br(htmlspecialchars($message['review'])) ?></div>
           </div>
     <?php endforeach; ?>
