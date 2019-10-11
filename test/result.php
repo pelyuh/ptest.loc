@@ -35,48 +35,28 @@ $not_correct = '<span class="not_correct">The answer is not correct.</span>';
 <p>2 + 2 =
   <?php
   echo $_SESSION['answer_1'] . ' ';
-  if ($_SESSION['answer_1'] == 4) {
-    echo $correct;
-  }
-  else {
-    echo $not_correct;
-  }
+  echo $answer_1 = $_SESSION['answer_1'] == 4 ? $correct : $not_correct;
   ?>
 </p>
 
 <p>10 + 2 =
   <?php
   echo $_SESSION['answer_2'] . ' ';
-  if ($_SESSION['answer_2'] == 12) {
-    echo $correct;
-  }
-  else {
-    echo $not_correct;
-  }
+  echo $answer_2 = $_SESSION['answer_2'] == 12 ? $correct : $not_correct;
   ?>
 </p>
 
 <p>10 - 2 =
   <?php
   echo $_SESSION['answer_3'] . ' ';
-  if ($_SESSION['answer_3'] == 8) {
-    echo $correct;
-  }
-  else {
-    echo $not_correct;
-  }
+  echo $answer_3 = $_SESSION['answer_3'] == 8 ? $correct : $not_correct;
   ?>
 </p>
 
 <p>10 * 2 =
   <?php
   echo $_SESSION['answer_4'] . ' ';
-  if ($_SESSION['answer_4'] == 20) {
-    echo $correct;
-  }
-  else {
-    echo $not_correct;
-  }
+  echo $answer_4 = $_SESSION['answer_4'] == 20 ? $correct : $not_correct;
   ?>
 </p>
 
