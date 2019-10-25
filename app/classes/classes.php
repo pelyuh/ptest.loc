@@ -3,10 +3,18 @@
 
 class ShopProduct
 {
-    public $title = "Стандартный товар";
-    public $producerMainName = "Фамилия автора";
-    public $producerFirstName = "Имя автора";
+    public $title;
+    public $producerMainName;
+    public $producerFirstName;
     public $price = 0;
+
+    public function __construct($title, $producerMainName, $producerFirstName, $price = 0)
+    {
+        $this->title = $title;
+        $this->producerMainName = $producerMainName;
+        $this->producerFirstName = $producerFirstName;
+        $this->price = $price;
+    }
 
     public function getProducer()
     {
