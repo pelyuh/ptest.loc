@@ -256,6 +256,25 @@ echo '<br>';
 echo "Вибраний елемент: $action[right]";
 echo '<hr>';
 
+class FirstClass
+{
+    public function prt(){
+        echo 'test';
+    }
+}
+
+
+$a = new FirstClass();
+$b = $a;
+$c = new FirstClass();
+
+var_dump($a);
+echo '<hr>';
+var_dump($b);
+echo '<hr>';
+var_dump($c);
+
+
 ?>
 
 </body>

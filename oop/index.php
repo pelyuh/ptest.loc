@@ -1,5 +1,6 @@
 <?php
 
+
 require_once 'classes/File.php';
 
 $file = new File(__DIR__ . '/text.txt');
