@@ -28,7 +28,6 @@ $p = new ShopProduct("Нежное мыло", "",
 print $p->calculateTax(100) . "\n";
 
 
-
 /*
  * В приведенном ниже примере кода сначала объявляется простой трейт, со­
  * держащий метод calculateTax (), затем этот трейт включается оба класса:
@@ -94,3 +93,55 @@ class ShopProduct_2
 $p = new ShopProduct_2();
 print $p->calculateTax(100) . "<br />\n";
 print $p->generateId() . "<br />\n";
+
+
+/*
+ * Сочетание трейтов интерфейсами
+ * Несмотря на то что польза от трейтов не вызывает особых сомнений, они
+ * не позволяют изменить тип класса, который они включены. Так, если трейт
+ * IdentityTrait используется сразу нескольких классах, у них все равно не
+ * будет общего типа, который можно было бы указать сигнатурах методов.
+ * Правда, трейты можно удачно сочетать интерфейсами. В частности, сначала
+ * можно определить интерфейс сигнатурой метода generateld (), затем объ­
+ * явить, что классе ShopProduct реализуются методы этого интерфейса:
+ * */
+
+interface IdentityObject
+{
+    public function generateId(): string;
+}
+
+trait IdentityTrait_1
+{
+    public function generateId(): string
+    {
+        return uniqid();
+    }
+}
+
+class ShopProduct_3 implements IdentityObject
+{
+    use PriceUtilities, IdentityTrait_1;
+}
+
+class TestClass
+{
+
+    public static function storeIdentityObject(
+        IdentityObject $idobj)
+    {
+        // сделать что-нибудь с экземпляром типа IdentityObject
+    }
+
+    public static function run()
+    {
+        $p = new ShopProduct_3();
+        self::storeIdentityObject($p);
+        print $p->calculateTax(100) . "<br />\n";
+        print $p->generateId() . "<br />\n";
+
+    }
+
+}
+
+TestClass::run();
