@@ -8,7 +8,11 @@ class ShopProduct
     public $producerFirstName;
     public $price = 0;
 
-    public function __construct($title, $producerMainName, $producerFirstName, $price = 0)
+    public function __construct(
+        string $title,
+        string $producerMainName,
+        string $producerFirstName,
+        float $price = 0)
     {
         $this->title = $title;
         $this->producerMainName = $producerMainName;
