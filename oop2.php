@@ -10,8 +10,7 @@ require_once 'app/oop2/BookProduct.php';
 
 $cdProduct = new CdProduct("Классическая музыка. Лучшее", "Антонио", "Вивальди", 10.99, 60.33);
 
-$bookProduct = new BookProduct ("Собачье сердце", "Михаил", "Булгаков", 5.99, "500");
-
+$bookProduct = new BookProduct ("Собачье сердце", "Михаил", "Булгаков", 5.99, 500);
 
 echo $cdProduct->getSummaryLine();
 

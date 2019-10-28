@@ -4,7 +4,7 @@ require_once "ShopProduct.php";
 
 class CdProduct extends ShopProduct
 {
-    public $playLength;
+    private $playLength;
 
     public function __construct(
         string $title,
@@ -29,9 +29,8 @@ class CdProduct extends ShopProduct
 
     public function getSummaryLine()
     {
-        $base = "{$this->title} ( {$this->producerMainName}, ";
-        $base .= "{$this->producerFirstName} )";
-        $base .= ": Время звучания - {$this->playLength} мин.";
+        $base = parent::getSummaryLine();
+        $base .= ": Время звучания - {$this->playLength}";
         return $base;
     }
 }

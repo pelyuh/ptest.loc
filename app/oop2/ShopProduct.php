@@ -3,41 +3,47 @@
 
 class ShopProduct
 {
-    public $title;
-    public $producerMainName;
-    public $producerFirstName;
-    public $price;
-    public $discount = 0;
+    private $title;
+    private $producerMainName;
+    private $producerFirstName;
+    protected $price;
+    private $discount = 0;
 
-    function __construct(
-        $title,
-        $firstName,
-        $mainName,
-        $price
-    )
-    {
+    public function __construct(
+        string $title,
+        string $firstName,
+        string $mainName,
+        float $price
+    ) {
         $this->title = $title;
         $this->producerFirstName = $firstName;
         $this->producerMainName = $mainName;
         $this->price = $price;
     }
 
-    function getProducer()
+    public function getProducerFirstName()
     {
-        return $this->producerFirstName . " "
-            . $this->producerMainName;
+        return $this->producerFirstName;
     }
 
-    function getSummaryLine()
+    public function getProducerMainName()
     {
-        $base = "{$this->title} ( {$this->producerMainName}, ";
-        $base .= "{$this->producerFirstName} )";
-        return $base;
+        return $this->producerMainName;
     }
 
-    public function setDiscount(int $num)
+    public function setDiscount($num)
     {
         $this->discount = $num;
+    }
+
+    public function getDiscount()
+    {
+        return $this->discount;
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
     }
 
     public function getPrice()
@@ -45,5 +51,16 @@ class ShopProduct
         return ($this->price - $this->discount);
     }
 
+    public function getProducer()
+    {
+        return $this->producerFirstName . " "
+            . $this->producerMainName;
+    }
 
+    public function getSummaryLine()
+    {
+        $base = "{$this->title} ( {$this->producerMainName}, ";
+        $base .= "{$this->producerFirstName} )";
+        return $base;
+    }
 }

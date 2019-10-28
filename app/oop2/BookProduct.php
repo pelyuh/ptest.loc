@@ -4,7 +4,7 @@ require_once "ShopProduct.php";
 
 class BookProduct extends ShopProduct
 {
-    public $numPages;
+    private $numPages;
 
     public function __construct(
         string $title,
@@ -29,8 +29,6 @@ class BookProduct extends ShopProduct
 
     public function getSummaryLine()
     {
-        // $base = "{$this->title} ( $this->producerMainName, ";
-        // $base .= "$this->producerFirstName )";
         $base = parent::getSummaryLine();
         $base .= ": {$this->numPages} стр.";
         return $base;
@@ -40,6 +38,4 @@ class BookProduct extends ShopProduct
     {
         return $this->price;
     }
-
-
 }
