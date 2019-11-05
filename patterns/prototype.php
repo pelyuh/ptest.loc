@@ -39,10 +39,13 @@ class Sheep
 
 $original = new Sheep('Джолли');
 echo $original->getName(); // Джолли
+echo '<br>';
 echo $original->getCategory(); // Горная овечка
+echo '<br>';
 
 // Клонируем и модифицируем то что нужно
 $cloned = clone $original;
 $cloned->setName('Долли');
 echo $cloned->getName(); // Долли
+echo '<br>';
 echo $cloned->getCategory(); // Горная овечка
